@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Mostrar IP Pública</title>
+</head>
+<body>
+  <h1>Tu IP pública es:</h1>
+  <p id="ip">Cargando...</p>
+
+  <script>
+    fetch('https://api.ipify.org?format=json')
+      .then(response => response.json())
+      .then(data => {
+        document.getElementById('ip').textContent = data.ip;
+      })
+      .catch(() => {
+        document.getElementById('ip').textContent = 'No se pudo obtener la IP';
+      });
+  </script>
+</body>
+</html>
